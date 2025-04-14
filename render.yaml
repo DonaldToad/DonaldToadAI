@@ -1,0 +1,12 @@
+services:
+  # A web service with a health check for Donald Toad Telegram Bot
+  - type: web
+    name: donald-toad-telegram-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false # This will prompt for the token during deployment
